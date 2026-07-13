@@ -19,7 +19,7 @@ from mathutils import Vector
 KAYKIT   = r"D:\.CODE\AXdata\렌더\KayKit_Adventurers_2.0_FREE\KayKit_Adventurers_2.0_FREE"
 CHAR_DIR = KAYKIT + r"\Characters\gltf"
 ANIM_FILE = KAYKIT + r"\Animations\gltf\Rig_Medium\Rig_Medium_General.glb"
-OUT_DIR  = r"D:\.CODE\out_sprites"          # 결과 저장 폴더
+OUT_DIR  = r"D:\.CODE\AXdata\axdata_05\out"          # 결과 저장 폴더
 
 BODIES   = ["Knight"]                       # 확장 예: ["Knight","Barbarian","Mage","Rogue","Rogue_Hooded","Ranger"]
 ACTIONS  = ["Idle"]                         # 액션 이름에 포함되는 키워드. 확장 예: ["Idle","Attack","Hit","Death"]
