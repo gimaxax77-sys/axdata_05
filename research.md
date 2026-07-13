@@ -35,3 +35,10 @@
   - jobs/inbox·jobs/done 폴더, automation/README.md(설정·폰에서 명령 보내는 법·보안).
 - 결정·근거: 폴링=PC가 밖으로 나가 확인 → 인바운드 노출 없음(안전). 화이트리스트+리스트인자 실행.
 - 한계: PC 켜짐+로그인 필요. Blender/Python 경로 CONFIG 수정 필요. 실제 동작은 PC에서 확인.
+
+## 2026-07-13 밤 — 스프라이트 렌더 파이프라인 검증 완료 ✅
+- 진행: axdata_05 render_sprites.py 를 PC에서 실행(ZIP 다운로드) → Knight 렌더 성공.
+- 결과: knight_idle.png 정상 생성. 텍스처(회색 갑옷+빨간 망토+장미)·투명배경·프레이밍 양호.
+- 조정: CAMERA_DIR (0,-1,0)=뒷모습 → (0,1,0)=앞모습 확인. 저장소 기본값을 (0,1,0)으로 반영.
+- 검증: 자동 밑몸(Mannequin) 렌더 제외 정상 작동. 첫 실행에 파이프라인 end-to-end 성공.
+- 다음: BODIES 확장(6바디), ACTIONS 확장(전투는 Rig_Medium_Combat*.glb 필요), 자동화 설정, 몬스터(Quaternius/Skeletons).
