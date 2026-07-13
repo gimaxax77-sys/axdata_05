@@ -87,3 +87,8 @@
 - 무료 내보내기: Tripo 무료 플랜 v2.5 모델 월 15회 GLB 내보내기 지원(구독 아님). 유료는 왕관 표시 '내보내기'.
 - 이슈: 측면으로 나옴(Tripo와 KayKit 정면축 다름, 예상된 현상).
 - 해결: render_folder.py에 SPRITE_DIR env로 카메라 방향 주입. render-folder.bat에 정면/측면 4방향 번호 메뉴 추가(파일 수정 없이 재실행으로 각도 맞춤). 측면이면 [2] front X(1,0,0) 우선 시도.
+
+## 2026-07-13 Tripo/AI 모델 정면 방향 확정
+- 4방향 자동 렌더 결과, Tripo(HD) 모델 정면 = _Xm = CAMERA_DIR (-1,0,0).
+- render-folder.bat 메뉴 [2]를 'Tripo/AI front Xm(-1,0,0)'로 확정 라벨. [3]=KayKit front Yp(0,1,0).
+- 다음: 이 캐릭터를 게임에 배치(assets/char)하거나, 매핑에 연결. 전투 옆모습/동작4종/스프라이트시트 확장은 이 방향 체계 위에서.

@@ -9,17 +9,17 @@ set "SPRITE_OUT=%~dp0out"
 echo ================================================
 echo   Folder render - pick facing
 echo ================================================
-echo   [1] ALL 4 directions (auto)   <- easiest, pick the good one
-echo   [2] front Y  (0,1,0)   default - KayKit
-echo   [3] front X  (1,0,0)   - many Tripo/AI models
-echo   [4] back  X  (-1,0,0)
-echo   [5] back  Y  (0,-1,0)
+echo   [1] ALL 4 directions (auto)     <- easiest, pick the good one
+echo   [2] Tripo/AI front  Xm (-1,0,0)  <- confirmed front for Tripo
+echo   [3] KayKit front    Yp (0,1,0)
+echo   [4] X+ (1,0,0)
+echo   [5] Y- (0,-1,0)
 echo ================================================
 set "SPRITE_DIR=ALL"
 set /p f="Select then Enter (Enter = 1 = ALL): "
-if "%f%"=="2" set "SPRITE_DIR=0,1,0"
-if "%f%"=="3" set "SPRITE_DIR=1,0,0"
-if "%f%"=="4" set "SPRITE_DIR=-1,0,0"
+if "%f%"=="2" set "SPRITE_DIR=-1,0,0"
+if "%f%"=="3" set "SPRITE_DIR=0,1,0"
+if "%f%"=="4" set "SPRITE_DIR=1,0,0"
 if "%f%"=="5" set "SPRITE_DIR=0,-1,0"
 
 echo.
