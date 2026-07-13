@@ -64,3 +64,9 @@
 - 몸 생성 3엔진: ①AI 텍스트→3D(Meshy 오토리깅+애니 내장/Tripo 8초·게임선호/Rodin/3DAI Studio) 무료=CC BY, 유료=완전소유. ②Mixamo 오토리그(무료, 공용스켈+애니). ③모듈러 CC0 킷배시(무료·CC0).
 - 접합: 무엇으로 만들든 .glb면 render-folder.bat로 2D화. 3D 원본 보관=영구 재사용 자산.
 - 다음 제안: 원본 1개만 생성→리그→render-folder 렌더로 파이프라인 end-to-end 검증(Meshy 또는 Tripo). 과설계 없이 작게 검증 후 확장.
+
+## 2026-07-13 생성 도구: Meshy 무료 막힘 → Tripo/Hunyuan3D로 전환
+- Meshy 무료 플랜은 생성 크레딧 막힘(체험용). 파이프라인은 동일, 생성 사이트만 교체.
+- 대안: Tripo(무료 생성·가입없이 체험·8초·GLB, tripo3d.ai) 추천 / Hunyuan3D(오픈소스 완전무료·무제한, 웹 hy-3d.net 또는 GPU 자가설치 6GB VRAM).
+- 라이선스: 프로토타입 무관. 출시 시 각 도구 조건 확인 or Hunyuan3D 자가설치가 가장 깨끗.
+- MESHY.md 를 도구 무관(Tripo 기준)으로 갱신. 다음: Tripo로 1개 생성→render-folder 검증.
