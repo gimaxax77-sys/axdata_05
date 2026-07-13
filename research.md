@@ -42,3 +42,11 @@
 - 조정: CAMERA_DIR (0,-1,0)=뒷모습 → (0,1,0)=앞모습 확인. 저장소 기본값을 (0,1,0)으로 반영.
 - 검증: 자동 밑몸(Mannequin) 렌더 제외 정상 작동. 첫 실행에 파이프라인 end-to-end 성공.
 - 다음: BODIES 확장(6바디), ACTIONS 확장(전투는 Rig_Medium_Combat*.glb 필요), 자동화 설정, 몬스터(Quaternius/Skeletons).
+
+## 2026-07-13 update.bat + bat 인코딩 수정 (정상 동작 확인)
+- 요청: ZIP 재다운로드 대신 최신 커밋을 버튼으로 받게 (아트팩 update.bat 방식).
+- 만든 것: update.bat — 최초 1회 ZIP폴더를 git과 자동 연결(git init+remote+fetch+reset --hard origin/main), 이후 git pull. 끝나면 render-roster.bat 실행 유도. character_map.csv 등 untracked 파일은 보존.
+- 문제: 실행 시 '諛붾줈' 등 한글이 명령어로 오인되는 파싱 에러. 원인=bat 안 한글 UTF-8을 명령창이 글자로 못 읽고 조각내 실행.
+- 해결: update.bat·render-roster.bat 안내문구를 ASCII(영어)로. chcp 65001은 유지 → Blender 렌더 로그 한글은 정상 표시. 커밋 ac24afb.
+- 결과: Gim PC에서 정상 동작 확인 완료.
+- 다음: 초상(앞모습) 잘 나오면 → 전투 옆모습 / 동작 4종(attack·hit·death, Rig_Medium_Combat*.glb 필요) / 스프라이트 시트 순으로 확장.
