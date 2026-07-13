@@ -56,3 +56,11 @@
 - 결과: 6개 KayKit 원형(Knight/Barbarian/Mage/Rogue/Rogue_Hooded/Ranger) 기반으로 게임 이름 33종 out_roster에 전부 생성 확인.
 - 확인 필요: 속성색 틴트(numpy) 실제 적용 여부 / 같은 몸(Knight 12명) 캐릭터가 색으로 구분되는지.
 - 다음: 전투 옆모습(카메라만 변경) → 동작 4종(Rig_Medium_Combat*.glb 필요) → 스프라이트 시트.
+
+## 2026-07-13 방향 결정: 공용 뼈대 + 몸 아트 직접 생성 (재사용 목적)
+- Gim 목표: 원형(몸) 자체를 풍부하게, 여러 게임/장르 재사용. 뼈대 공용 + 몸 아트 직접 생성 가능한지?
+- 답: 가능하며 정석(스켈레톤/메시 디커플링). KayKit도 Rig_Medium 공유 구조라 우리 애니 공유가 됐던 것.
+- 현 충돌: 6몸×5속성색이라 26/33 겹침. Barbarian·Rogue_Hooded 미사용. (틴트 자체는 정상 작동 확인)
+- 몸 생성 3엔진: ①AI 텍스트→3D(Meshy 오토리깅+애니 내장/Tripo 8초·게임선호/Rodin/3DAI Studio) 무료=CC BY, 유료=완전소유. ②Mixamo 오토리그(무료, 공용스켈+애니). ③모듈러 CC0 킷배시(무료·CC0).
+- 접합: 무엇으로 만들든 .glb면 render-folder.bat로 2D화. 3D 원본 보관=영구 재사용 자산.
+- 다음 제안: 원본 1개만 생성→리그→render-folder 렌더로 파이프라인 end-to-end 검증(Meshy 또는 Tripo). 과설계 없이 작게 검증 후 확장.
