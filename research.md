@@ -70,3 +70,14 @@
 - 대안: Tripo(무료 생성·가입없이 체험·8초·GLB, tripo3d.ai) 추천 / Hunyuan3D(오픈소스 완전무료·무제한, 웹 hy-3d.net 또는 GPU 자가설치 6GB VRAM).
 - 라이선스: 프로토타입 무관. 출시 시 각 도구 조건 확인 or Hunyuan3D 자가설치가 가장 깨끗.
 - MESHY.md 를 도구 무관(Tripo 기준)으로 갱신. 다음: Tripo로 1개 생성→render-folder 검증.
+
+## 2026-07-13 AI 3D 무료 도구 재검증 (Meshy·Tripo 함정 확인)
+- 핵심: '생성 무료' ≠ 'GLB 다운로드 무료' ≠ '상업 사용 무료'. 크레딧 제한도 별개.
+- Meshy: 쓸만한 기능 유료 뒤 잠김(확인). Tripo: 체험용 설계, 무료 크레딧 소진 시 막힘(Gim이 부딪힘). FBX 등 일부 포맷 상위 플랜 전용.
+- 진짜 완전 무료(다운로드·워터마크 없음): 오픈소스 HF Space.
+  - Hunyuan3D-2(텐센트): huggingface.co/spaces/tencent/Hunyuan3D-2 — 텍스트/이미지→GLB, 무제한 무료(공용 GPU라 대기 있음).
+  - TRELLIS(MS): huggingface.co/spaces/trellis-community/TRELLIS — 이미지→GLB.
+  - Upsampler: 로그인 없이 이미지→GLB, 워터마크 없음(TRELLIS 기반).
+- 주의: 오픈소스 무료 모델은 대부분 '이미지→3D'가 주력. 캐릭터 그림 1장 먼저 준비 필요.
+- Gim은 GPU 보유 → Hunyuan3D 자가설치 시 무제한·오프라인·완전무료·라이선스 깨끗(재사용 최적).
+- 제시한 3갈래: A)지금 HF Hunyuan3D B)GPU 자가설치(무제한) C)AI 대신 CC0 팩 확대. → Gim 선택 보류(다음 지시 대기).
