@@ -92,3 +92,10 @@
 - 4방향 자동 렌더 결과, Tripo(HD) 모델 정면 = _Xm = CAMERA_DIR (-1,0,0).
 - render-folder.bat 메뉴 [2]를 'Tripo/AI front Xm(-1,0,0)'로 확정 라벨. [3]=KayKit front Yp(0,1,0).
 - 다음: 이 캐릭터를 게임에 배치(assets/char)하거나, 매핑에 연결. 전투 옆모습/동작4종/스프라이트시트 확장은 이 방향 체계 위에서.
+
+## 2026-07-13 세션 종료 / 다음(모바일) 이어가기 메모
+- 현재 상태: AI 3D 파이프라인 end-to-end 검증 완료. 모두 axdata_05 main에 푸시됨.
+- Gim PC 재개 시: axdata_05 폴더에서 update.bat 더블클릭 → 최신본.
+- 반복 흐름: Tripo 무료 HD 생성 → GLB 내보내기(무료, 왼쪽 '보내기') → input 폴더 → render-folder.bat → [2] Tripo 정면 Xm(-1,0,0) 또는 [1] 4방향.
+- 다음 선택지: (1) 원형 여러 개 뽑아 input에 모아 일괄 렌더 (2) fire knight를 게임팩 assets/char에 배치 (3) 전투 옆모습/동작4종/스프라이트시트 확장(Tripo 리깅·애니 또는 Mixamo 공용뼈대).
+- 참고: character_map.csv는 axdata_05에 포함됨(render_roster.py용). axdata_01 art 문서는 feature 브랜치(claude/git-connection-status-rkjuko)에 있고 main과 갈라져 있음(정리는 보류).
