@@ -16,7 +16,7 @@ from mathutils import Vector
 
 # ===================== CONFIG (본인 PC에 맞게 수정) =====================
 # KayKit Adventurers 압축 푼 폴더(캐릭터 몸 + 애니메이션 모두 여기에 있음)
-KAYKIT   = r"D:\.CODE\아트팩\KayKit_Adventurers_2.0_FREE"
+KAYKIT   = r"D:\.CODE\AXdata\렌더\KayKit_Adventurers_2.0_FREE\KayKit_Adventurers_2.0_FREE"
 CHAR_DIR = KAYKIT + r"\Characters\gltf"
 ANIM_FILE = KAYKIT + r"\Animations\gltf\Rig_Medium\Rig_Medium_General.glb"
 OUT_DIR  = r"D:\.CODE\out_sprites"          # 결과 저장 폴더
