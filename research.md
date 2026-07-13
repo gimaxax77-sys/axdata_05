@@ -25,3 +25,13 @@
 - 결정·근거: GPU 렌더는 PC 전용 → '명령 한 줄' 반자동. 클라우드에서 테스트 불가라 초안, 첫 실행 시
   액션명/카메라 방향 조정 예상.
 - 결과: axdata_05 main 커밋·푸시. 밤 실행: blender --background --python scripts/render_sprites.py.
+
+## 2026-07-13 — 렌더 자동화(야간 예약 + 원격 폴링) 추가
+- 요청: (1)PC 켜두면 밤마다 스프라이트 자동 렌더(작업 스케줄러+render.bat) (2)밖에서 명령→PC가 폴링 실행.
+- 진행:
+  - render_sprites.py: 환경변수 SPRITE_BODIES/SPRITE_ACTIONS 로 명령 인자 override 지원.
+  - automation/poll.py: git pull→jobs/inbox/*.txt 화이트리스트('render Body Action')만 실행→로그 jobs/done→커밋·푸시. shell 미사용(주입 방지).
+  - automation/poll.bat(폴링 1회), setup_schedule.bat(야간 렌더 23:00 + 폴링 10분 schtasks 등록).
+  - jobs/inbox·jobs/done 폴더, automation/README.md(설정·폰에서 명령 보내는 법·보안).
+- 결정·근거: 폴링=PC가 밖으로 나가 확인 → 인바운드 노출 없음(안전). 화이트리스트+리스트인자 실행.
+- 한계: PC 켜짐+로그인 필요. Blender/Python 경로 CONFIG 수정 필요. 실제 동작은 PC에서 확인.
