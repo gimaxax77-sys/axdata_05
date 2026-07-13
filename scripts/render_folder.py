@@ -15,14 +15,21 @@ from mathutils import Vector
 INPUT_DIR = os.environ.get("SPRITE_INPUT") or os.path.join(os.getcwd(), "input")
 OUT_DIR = os.environ.get("SPRITE_OUT") or os.path.join(os.getcwd(), "out")
 RESOLUTION = int(os.environ.get("SPRITE_RES", "512"))
-# 카메라 방향: render-folder.bat 메뉴가 SPRITE_DIR="x,y,z" 로 넘김(없으면 앞모습 Y)
+# 카메라 방향: render-folder.bat 메뉴가 SPRITE_DIR 로 넘김.
+#  "ALL" = 4방향 자동 렌더(파일당 4장, 접미사로 구분). "x,y,z" = 그 방향 1장(접미사 없음).
 def _parse_dir(s, default=(0.0, 1.0, 0.0)):
     try:
         parts = [float(v) for v in s.split(",")]
         return tuple(parts) if len(parts) == 3 else default
     except Exception:
         return default
-CAMERA_DIR = _parse_dir(os.environ.get("SPRITE_DIR", ""))
+_DIR4 = [("_Yp", (0.0, 1.0, 0.0)), ("_Ym", (0.0, -1.0, 0.0)),
+         ("_Xp", (1.0, 0.0, 0.0)), ("_Xm", (-1.0, 0.0, 0.0))]
+_env_dir = os.environ.get("SPRITE_DIR", "")
+if _env_dir.strip().upper() == "ALL":
+    RENDER_DIRS = _DIR4                       # 접미사 붙은 4장
+else:
+    RENDER_DIRS = [("", _parse_dir(_env_dir))]  # 접미사 없는 1장
 CAMERA_TILT_DEG = 10.0
 PADDING = 1.15
 
@@ -68,7 +75,7 @@ def setup_workbench():
     sc.render.image_settings.color_mode = 'RGBA'
 
 
-def make_camera(meshes):
+def make_camera(meshes, cam_dir):
     mn, mx = mesh_bbox(meshes)
     center = (mn + mx) * 0.5
     size = max((mx - mn).x, (mx - mn).y, (mx - mn).z) or 1.0
@@ -77,7 +84,7 @@ def make_camera(meshes):
     cam_data.ortho_scale = size * PADDING
     cam = bpy.data.objects.new("SpriteCam", cam_data)
     bpy.context.collection.objects.link(cam)
-    d = Vector(CAMERA_DIR).normalized()
+    d = Vector(cam_dir).normalized()
     dist = size * 3.0
     up = Vector((0, 0, math.tan(math.radians(CAMERA_TILT_DEG)) * dist))
     cam.location = center - d * dist + up
@@ -94,7 +101,6 @@ def render_file(path):
         print(f"[건너뜀] 메시 없음: {path}")
         return
     setup_workbench()
-    make_camera(meshes)
     # 애니메이션이 있으면 중간 프레임(자연스러운 포즈)
     arm = next((o for o in objs if o.type == 'ARMATURE'), None)
     if arm and bpy.data.actions:
@@ -105,9 +111,13 @@ def render_file(path):
         f0, f1 = act.frame_range
         bpy.context.scene.frame_set(int((f0 + f1) // 2))
     name = os.path.splitext(os.path.basename(path))[0].lower()
-    bpy.context.scene.render.filepath = os.path.join(OUT_DIR, name + ".png")
-    bpy.ops.render.render(write_still=True)
-    print(f"[렌더] {name}.png")
+    # 방향별로 카메라를 새로 잡아 렌더(ALL이면 4장, 아니면 1장)
+    for suffix, cam_dir in RENDER_DIRS:
+        make_camera(meshes, cam_dir)
+        out = name + suffix
+        bpy.context.scene.render.filepath = os.path.join(OUT_DIR, out + ".png")
+        bpy.ops.render.render(write_still=True)
+        print(f"[렌더] {out}.png")
 
 
 def main():
