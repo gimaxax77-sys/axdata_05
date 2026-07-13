@@ -50,3 +50,9 @@
 - 해결: update.bat·render-roster.bat 안내문구를 ASCII(영어)로. chcp 65001은 유지 → Blender 렌더 로그 한글은 정상 표시. 커밋 ac24afb.
 - 결과: Gim PC에서 정상 동작 확인 완료.
 - 다음: 초상(앞모습) 잘 나오면 → 전투 옆모습 / 동작 4종(attack·hit·death, Rig_Medium_Combat*.glb 필요) / 스프라이트 시트 순으로 확장.
+
+## 2026-07-13 매핑 로스터 렌더 33종 생성 확인
+- character_map.csv 를 axdata_05 저장소에 포함 → update.bat이 자동 배포(수동 배치 제거). 커밋 9dfb206.
+- 결과: 6개 KayKit 원형(Knight/Barbarian/Mage/Rogue/Rogue_Hooded/Ranger) 기반으로 게임 이름 33종 out_roster에 전부 생성 확인.
+- 확인 필요: 속성색 틴트(numpy) 실제 적용 여부 / 같은 몸(Knight 12명) 캐릭터가 색으로 구분되는지.
+- 다음: 전투 옆모습(카메라만 변경) → 동작 4종(Rig_Medium_Combat*.glb 필요) → 스프라이트 시트.
