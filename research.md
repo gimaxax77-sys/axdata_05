@@ -81,3 +81,9 @@
 - 주의: 오픈소스 무료 모델은 대부분 '이미지→3D'가 주력. 캐릭터 그림 1장 먼저 준비 필요.
 - Gim은 GPU 보유 → Hunyuan3D 자가설치 시 무제한·오프라인·완전무료·라이선스 깨끗(재사용 최적).
 - 제시한 3갈래: A)지금 HF Hunyuan3D B)GPU 자가설치(무제한) C)AI 대신 CC0 팩 확대. → Gim 선택 보류(다음 지시 대기).
+
+## 2026-07-13 파이프라인 end-to-end 성공 (Tripo→GLB→렌더)
+- Gim: Tripo 무료 HD로 fire knight 생성→GLB 내보내기(무료, 왼쪽 '보내기' 버튼)→render-folder.bat 렌더 성공. 텍스처 포함 컬러 모델 나옴.
+- 무료 내보내기: Tripo 무료 플랜 v2.5 모델 월 15회 GLB 내보내기 지원(구독 아님). 유료는 왕관 표시 '내보내기'.
+- 이슈: 측면으로 나옴(Tripo와 KayKit 정면축 다름, 예상된 현상).
+- 해결: render_folder.py에 SPRITE_DIR env로 카메라 방향 주입. render-folder.bat에 정면/측면 4방향 번호 메뉴 추가(파일 수정 없이 재실행으로 각도 맞춤). 측면이면 [2] front X(1,0,0) 우선 시도.

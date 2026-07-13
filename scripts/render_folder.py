@@ -15,7 +15,14 @@ from mathutils import Vector
 INPUT_DIR = os.environ.get("SPRITE_INPUT") or os.path.join(os.getcwd(), "input")
 OUT_DIR = os.environ.get("SPRITE_OUT") or os.path.join(os.getcwd(), "out")
 RESOLUTION = int(os.environ.get("SPRITE_RES", "512"))
-CAMERA_DIR = (0.0, 1.0, 0.0)     # 앞모습 (옆모습은 (-1,0,0) 등)
+# 카메라 방향: render-folder.bat 메뉴가 SPRITE_DIR="x,y,z" 로 넘김(없으면 앞모습 Y)
+def _parse_dir(s, default=(0.0, 1.0, 0.0)):
+    try:
+        parts = [float(v) for v in s.split(",")]
+        return tuple(parts) if len(parts) == 3 else default
+    except Exception:
+        return default
+CAMERA_DIR = _parse_dir(os.environ.get("SPRITE_DIR", ""))
 CAMERA_TILT_DEG = 10.0
 PADDING = 1.15
 
