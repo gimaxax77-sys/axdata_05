@@ -122,3 +122,9 @@
 - 승인 이미지 보관: axdata_05/reference/kael_base_ref.jpg (품질 게이트 통과분).
 - 다음: 이 JPG → Tripo 이미지→3D(HD 모델) → GLB → PC render-folder → 4방향 검수 → 게임크기 확인.
 - 팁: 팔이 처진 후보(A/D)는 다음부터 프롬프트에 'arms straight out, horizontal T-pose' 추가.
+
+## 2026-07-14 작업 분담 + 다음 이미지 생성
+- Tripo 모바일 무료 GLB 내보내기 확인: 월 15회 중 3 사용, 12 남음. 폰만으로 생성~GLB 가능.
+- 분담: 모바일=이미지 생성(무료·무제한), PC(오후 10시)=렌더. GLB 변환은 15회 예산이라 카엘 렌더 확인 후 승인분만.
+- 레시피 강화: 프롬프트 T-pose→'arms straight out to the sides horizontal T-pose'(A/D 팔처짐 방지). 아티팩트 갱신.
+- 다음(모바일): 루나(여성·일관성 핵심)/그웬/궁수 등 이미지 4장씩 생성→후보 curate. 카엘과 한 세트로 보이는지(두신비·얼굴톤·질감·속성색) 검수. 3D 변환은 아직 X.
