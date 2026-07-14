@@ -23,11 +23,10 @@ RETRIES = int(os.environ.get("POLL_RETRIES", "6"))  # 500 잦으면 늘리기
 STYLE = (
     "cute big head chibi, stylized 3D game character render, smooth shading, glossy, "
     "highly detailed, vibrant colors, full body standing, "
-    "both arms outstretched to the sides in a T-pose, "
-    "both hands are simple small rounded chibi hands with fingers together like soft mittens, "
-    "hands relaxed and empty, holding nothing, "
+    "relaxed natural standing pose, both arms lowered down at the sides, "
+    "hands relaxed and loosely closed, simple clean small hands, empty hands holding nothing, "
     "unarmed, no weapon, no sword, no dagger, no blade, no bow, no staff, no wand, no shield, no held item, "
-    "simple clean hands, correct five fingers, no extra fingers, no deformed hands, "
+    "no extra fingers, no deformed hands, "
     "face and hair fully visible, no helmet, cute rounded symmetric face, clear eyes nose mouth, "
     "pure white background, no base, centered"
 )
