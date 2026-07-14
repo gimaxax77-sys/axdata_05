@@ -148,3 +148,8 @@
 - 후보 1(552188db, 미소·파란크리스탈·물속성 뚜렷) 선정. 3·4는 중복. reference/gwen_base_ref.jpg 보관.
 - 현재 기준작 3종 톤 통일: 카엘(FIRE/검은머리) 루나(LIGHT/은발) 그웬(WATER/파란머리).
 - 다음: 폭풍궁수(DARK) 또는 바람의무희(WOOD) 생성. 3D변환은 여전히 보류(오후10시 카엘 렌더 후).
+
+## 2026-07-14 바람의무희(ciel/WOOD) 생성 = 후보 1
+- 3장 생성. 후보 1(7a1d1c4e, 갈색머리·초록눈·나뭇잎망토·얼굴잘보임) 선정. reference/ciel_base_ref.jpg.
+- 참고: 무기(단검) 제거로 '무희'가 레인저/드루이드 망토 느낌. WOOD엔 적합. 더 날렵한 무희 원하면 'green dancer girl, flowing dress, agile'로 조정 가능(Gim 판단 대기).
+- 기준작 4종: kael(FIRE) luna(LIGHT) gwen(WATER) ciel(WOOD). 남은 속성 DARK(폭풍궁수 등).
