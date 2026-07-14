@@ -17,6 +17,7 @@ OUT = os.environ.get("SPRITE_OUT", os.path.join(_REPO, "out_gen"))
 MODEL = os.environ.get("POLL_MODEL", "flux")
 W = int(os.environ.get("POLL_W", "1024"))
 H = int(os.environ.get("POLL_H", "1024"))
+RETRIES = int(os.environ.get("POLL_RETRIES", "6"))  # 500 잦으면 늘리기
 
 # 모든 캐릭터에 공통으로 붙는 확정 레시피(큰머리 치비 · 무기없음 · 투구없음 · 흰배경 · T포즈)
 STYLE = (
@@ -85,7 +86,7 @@ def main():
         seed = int(hashlib.md5(cid.encode()).hexdigest()[:6], 16)
         url = build_url(CHARS[cid], seed)
         ok = False
-        for attempt in range(3):
+        for attempt in range(RETRIES):
             try:
                 req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
                 with urllib.request.urlopen(req, timeout=180) as r:
@@ -98,12 +99,16 @@ def main():
                 ok = True
                 break
             except Exception as e:
-                print(f"    재시도 {attempt + 1}/3: {cid} — {e}")
-                time.sleep(4 * (attempt + 1))
+                wait = min(40, 8 * (attempt + 1))  # 서버 500 대비 넉넉히 대기
+                print(f"    재시도 {attempt + 1}/{RETRIES}: {cid} — {e} (대기 {wait}s)")
+                time.sleep(wait)
         if not ok:
-            print(f"    [실패] {cid} — 나중에 다시 실행하면 재시도됩니다")
-        time.sleep(2)  # 서버 배려
+            print(f"    [실패] {cid} — 나중에 다시 실행하면 그 캐릭만 재시도됩니다")
+        time.sleep(3)  # 서버 배려
     print("완료. 결과 폴더:", OUT)
 
 
-main()
+try:
+    main()
+except KeyboardInterrupt:
+    print("\n[중단] 사용자가 멈춤. 다시 실행하면 안 된 것만 이어서 생성합니다.")
