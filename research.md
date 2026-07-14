@@ -153,3 +153,11 @@
 - 3장 생성. 후보 1(7a1d1c4e, 갈색머리·초록눈·나뭇잎망토·얼굴잘보임) 선정. reference/ciel_base_ref.jpg.
 - 참고: 무기(단검) 제거로 '무희'가 레인저/드루이드 망토 느낌. WOOD엔 적합. 더 날렵한 무희 원하면 'green dancer girl, flowing dress, agile'로 조정 가능(Gim 판단 대기).
 - 기준작 4종: kael(FIRE) luna(LIGHT) gwen(WATER) ciel(WOOD). 남은 속성 DARK(폭풍궁수 등).
+
+## 2026-07-14 33명 자동 생성 도구(Pollinations) + 직업별 개별 프롬프트
+- 스타일 확정: 큰머리 치비(Flux). Flux는 두신비 숫자 안 들음 → 큰머리로 통일(토이삼국 톤). 카엘도 이 스타일로 재생성 예정.
+- 요청: 속성 색규칙 폐기. 33명을 직업/칭호별로 전부 다르게 개별 설계(머리색·복장·실루엣·성별 다양화).
+- 산출물: scripts/gen_pollinations.py (33명 CHARS dict, 공통 STYLE=무기없음·투구없음·흰배경·T포즈, urllib로 다운로드·재시도·skip-existing) + gen-pollinations.bat(파이썬 확인 후 실행).
+- 실행: 미니PC에서 gen-pollinations.bat → out_gen/<id>.png 33장. Python3 필요(없으면 설치 안내).
+- 편집: 특정 캐릭터 맘에 안들면 CHARS 설명만 고치고 그 png 지우고 재실행.
+- 다음: Gim이 실행→33장 확인→검수→마음에 안드는 것만 재생성→3D변환→렌더.
