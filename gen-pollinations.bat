@@ -7,9 +7,15 @@ set "PY="
 where python >nul 2>&1 && set "PY=python"
 if not defined PY ( where py >nul 2>&1 && set "PY=py" )
 if not defined PY (
-  echo [ERROR] Python not found (neither 'python' nor 'py').
+  for /d %%d in ("%LocalAppData%\Programs\Python\Python*") do if exist "%%d\python.exe" set "PY=%%d\python.exe"
+)
+if not defined PY (
+  if exist "%ProgramFiles%\Python*\python.exe" for %%f in ("%ProgramFiles%\Python*\python.exe") do set "PY=%%f"
+)
+if not defined PY (
+  echo [ERROR] Python not found.
   echo   Install: https://www.python.org/downloads/  (check "Add python.exe to PATH")
-  echo   Or restart this window after installing, then run again.
+  echo   After installing, RESTART the PC once, then run this again.
   pause & exit /b 1
 )
 
