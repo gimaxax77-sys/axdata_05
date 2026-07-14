@@ -161,3 +161,13 @@
 - 실행: 미니PC에서 gen-pollinations.bat → out_gen/<id>.png 33장. Python3 필요(없으면 설치 안내).
 - 편집: 특정 캐릭터 맘에 안들면 CHARS 설명만 고치고 그 png 지우고 재실행.
 - 다음: Gim이 실행→33장 확인→검수→마음에 안드는 것만 재생성→3D변환→렌더.
+
+## 2026-07-14 저녁 — 노트북 세팅 + 33명 자동생성 + 손 문제 (진행중)
+- 노트북(Lenovo Yoga Slim 7 Pro X, RTX3050 4GB): Git·Python 설치 완료. 저장소 C:\AX data\axdata_05 에 clone.
+- gen-pollinations.bat: where python 확인이 헛발질 → python 직접 호출+py 폴백으로 수정(작동 확인). 앞으로 bat 더블클릭만 하면 됨(cmd 불필요).
+- Pollinations flux 500 잦음 → 재시도 6회·대기 확대. 품질우선 원칙으로 turbo 안 씀, flux 유지. 33장 1차 생성 완료.
+- 문제1 무기: 검사/궁수/자객 등 직업단어가 무기 소환 → STYLE 빈손 강조+금지어, 직업설명에서 무기단어 제거(warrior/ranger/rogue 등). 재생성.
+- 문제2 손: 90% 손 이상. 원인=T포즈로 편 손이 정면 노출(Flux가 못 그림). 1차 수정(미튼형)도 실패. 근본수정=T포즈 폐기→팔 내린 자연 자세로 손 노출 최소화. kael 1개로 재검증 대기(미완).
+- 규칙 리마인드 받음: 한글 문장 콜론(:) 금지, 마침표로. 준수.
+- 로컬 전환 문의: Claude Code 노트북 설치 시 git pull 불필요·직접 작업 가능. 새 세션이지만 research.md+CLAUDE.md로 맥락 이어짐.
+- 다음: kael 자연자세 손 결과 확인 → 좋으면 33명 전체 재생성 → 검수 → 3D변환(Tripo 무료 12회) → render-folder 렌더.
