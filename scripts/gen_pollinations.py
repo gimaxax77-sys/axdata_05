@@ -24,8 +24,10 @@ STYLE = (
     "cute big head chibi, stylized 3D game character render, smooth shading, glossy, "
     "highly detailed, vibrant colors, full body standing, "
     "both arms outstretched to the sides in a T-pose, "
-    "both hands completely empty and open, palms open and visible, holding nothing in hands, "
+    "both hands are simple small rounded chibi hands with fingers together like soft mittens, "
+    "hands relaxed and empty, holding nothing, "
     "unarmed, no weapon, no sword, no dagger, no blade, no bow, no staff, no wand, no shield, no held item, "
+    "simple clean hands, correct five fingers, no extra fingers, no deformed hands, "
     "face and hair fully visible, no helmet, cute rounded symmetric face, clear eyes nose mouth, "
     "pure white background, no base, centered"
 )
