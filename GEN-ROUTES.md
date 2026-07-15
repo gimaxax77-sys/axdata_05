@@ -8,6 +8,7 @@
 | **무료 (Pollinations)** | `gen-pollinations.bat` | `out_gen/` | 0원 | 무료·flux, 다만 500 불안정 |
 | **유료 flux (Together)** | `gen-together.bat` | `out_together/` | 약 130원/33장 | 안정적·flux, 가입 무료크레딧 |
 | **Bing품질 (OpenAI)** | `gen-openai.bat` | `out_openai/` | 약 220원/33장 | 균형비율 DALL-E 계열 품질 |
+| **DALL-E 풀 (OpenAI)** | `gen-openai-full.bat` | `out_openai_full/` | 약 1,300원/33장 | DALL-E 3 최고 품질(균형비율). `hd`로 바꾸면 $0.08 |
 
 각 경로가 **다른 폴더**에 저장하므로, 셋을 다 돌려 **나란히 비교**할 수 있습니다.
 

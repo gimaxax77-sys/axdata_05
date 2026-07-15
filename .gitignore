@@ -4,5 +4,6 @@ __pycache__/
 jobs/done/*
 out_gen/
 out_openai/
+out_openai_full/
 out_roster/
 out_together/
