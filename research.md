@@ -180,3 +180,13 @@
 - 핵심: 이미지 API 가격 최근 25~40배 폭락. 33장 몇백원, 100장도 ~천원. 불안정 무료와 싸우기보다 소액 유료가 품질우선에 부합.
 - 접합: gen_pollinations.py와 구조 동일. 엔드포인트+API키만 교체하면 됨. 서비스 선택 후 스크립트 개조 예정.
 - 출처: pricepertoken.com/image, tokenmix.ai, fal.ai/flux, together.ai, modelslab.com.
+
+## 2026-07-14 3개 생성 경로 모두 셋업
+- Gim 요청: 3개 경로 모두 셋업.
+- 공유: scripts/char_prompts.py (STYLE+CHARS 33명). 세 경로가 import해 동일 프롬프트 사용.
+- 경로1 무료: gen_pollinations.py + gen-pollinations.bat → out_gen/ (flux, 500 불안정).
+- 경로2 유료 flux: gen_together.py + gen-together.bat → out_together/ (Together FLUX.1-schnell-Free, Bearer TOGETHER_API_KEY, 약 130원/33장, 가입 무료크레딧).
+- 경로3 Bing품질: gen_openai.py + gen-openai.bat → out_openai/ (gpt-image-1-mini, quality=low, 약 220원/33장).
+- bat이 API 키를 set /p로 입력받음. 각 경로 다른 폴더 저장→나란히 비교 가능.
+- 미검증 주의: Together/OpenAI 스크립트는 클라우드에서 실제 호출 테스트 불가(프록시 차단·키 없음). py_compile만 통과. 첫 실행 시 모델명/응답형식 미세조정 필요할 수 있음(내가 로그 보고 잡음).
+- 다음: Gim이 원하는 경로 실행→3폴더 비교→최적 경로 선택→3D 변환·렌더.

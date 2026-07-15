@@ -1,4 +1,8 @@
-__pycache__/
-*.pyc
-jobs/done/*
 !jobs/done/.gitkeep
+*.pyc
+__pycache__/
+jobs/done/*
+out_gen/
+out_openai/
+out_roster/
+out_together/
