@@ -171,3 +171,12 @@
 - 규칙 리마인드 받음: 한글 문장 콜론(:) 금지, 마침표로. 준수.
 - 로컬 전환 문의: Claude Code 노트북 설치 시 git pull 불필요·직접 작업 가능. 새 세션이지만 research.md+CLAUDE.md로 맥락 이어짐.
 - 다음: kael 자연자세 손 결과 확인 → 좋으면 33명 전체 재생성 → 검수 → 3D변환(Tripo 무료 12회) → render-folder 렌더.
+
+## 2026-07-14 일괄 생성 다른 루트 조사
+- 배경: Pollinations(무료 flux) 500 잦음. 대안 조사.
+- ① 무료 자동: Pollinations / HF Space — 무료지만 불안정·대기열. 개선책=한가한 시간대+재시도.
+- ② 초저가 유료 API(추천·안정): ModelsLab $0.002, Together flux-schnell $0.003, fal.ai $0.003~0.025, Replicate $0.005~, OpenAI gpt-image-1 mini $0.005(=Bing/DALL-E 품질), DALL-E 풀 $0.04. → 33장 약 90~1300원. 가입 무료크레딧으로 첫배치 공짜 흔함.
+- ③ 로컬 자가생성: Flux/SDXL 8GB+ VRAM 필요. 미니PC(AMD iGPU, CUDA없음) 불가, RTX3050 4GB 부적합 → Gim 장비엔 비권장.
+- 핵심: 이미지 API 가격 최근 25~40배 폭락. 33장 몇백원, 100장도 ~천원. 불안정 무료와 싸우기보다 소액 유료가 품질우선에 부합.
+- 접합: gen_pollinations.py와 구조 동일. 엔드포인트+API키만 교체하면 됨. 서비스 선택 후 스크립트 개조 예정.
+- 출처: pricepertoken.com/image, tokenmix.ai, fal.ai/flux, together.ai, modelslab.com.
