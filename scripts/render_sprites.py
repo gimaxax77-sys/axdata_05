@@ -42,6 +42,9 @@ if _env_actions:
 _env_anim = os.environ.get("SPRITE_ANIM")          # 예: MovementBasic
 if _env_anim:
     ANIM_FILE = KAYKIT + r"\Animations\gltf\Rig_Medium\Rig_Medium_" + _env_anim + ".glb"
+_env_anim_path = os.environ.get("SPRITE_ANIM_PATH")  # 다른 팩의 애니 glb 전체 경로
+if _env_anim_path:
+    ANIM_FILE = _env_anim_path
 _env_frames = os.environ.get("SPRITE_FRAMES")
 if _env_frames:
     FRAMES_PER_ACTION = max(1, int(_env_frames))
@@ -51,6 +54,9 @@ if _env_camdir:
         CAMERA_DIR = tuple(float(x) for x in _env_camdir.split(","))
     except Exception:
         pass
+_env_out = os.environ.get("SPRITE_OUT")            # 결과 폴더 덮어쓰기
+if _env_out:
+    OUT_DIR = _env_out
 
 
 def clear_scene():
