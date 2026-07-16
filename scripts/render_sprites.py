@@ -38,6 +38,19 @@ if _env_bodies:
 _env_actions = os.environ.get("SPRITE_ACTIONS")
 if _env_actions:
     ACTIONS = [a.strip() for a in _env_actions.split(",") if a.strip()]
+# 걷기/달리기 등은 다른 애니 파일(MovementBasic)·다프레임·측면이 필요 → env 로 덮어씀
+_env_anim = os.environ.get("SPRITE_ANIM")          # 예: MovementBasic
+if _env_anim:
+    ANIM_FILE = KAYKIT + r"\Animations\gltf\Rig_Medium\Rig_Medium_" + _env_anim + ".glb"
+_env_frames = os.environ.get("SPRITE_FRAMES")
+if _env_frames:
+    FRAMES_PER_ACTION = max(1, int(_env_frames))
+_env_camdir = os.environ.get("SPRITE_DIR")         # 예: "1,0,0" (측면)
+if _env_camdir:
+    try:
+        CAMERA_DIR = tuple(float(x) for x in _env_camdir.split(","))
+    except Exception:
+        pass
 
 
 def clear_scene():
