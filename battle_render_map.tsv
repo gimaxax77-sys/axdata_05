@@ -1,0 +1,22 @@
+id	archetype	body_glb_win
+knight	VANGUARD	D:/.CODE/AXdata/렌더/KayKit_Adventurers_2.0_FREE/KayKit_Adventurers_2.0_FREE/Characters/gltf/Knight.glb
+paladin	VANGUARD	D:/.CODE/AXdata/렌더/KayKit_Complete_v6/The Complete KayKit Collection v6/KayKit Mystery Monthly Series 4/10 - April 2024 - Paladin/characters/gltf/Paladin.glb
+paladin_with_helmet	VANGUARD	D:/.CODE/AXdata/렌더/KayKit_Complete_v6/The Complete KayKit Collection v6/KayKit Mystery Monthly Series 4/10 - April 2024 - Paladin/characters/gltf/Paladin_with_Helmet.glb
+skeleton_golem	VANGUARD	D:/.CODE/AXdata/렌더/KayKit_Complete_v6/The Complete KayKit Collection v6/KayKit Skeletons 1.1/characters/gltf/Skeleton_Golem.glb
+barbarian	STRIKER	D:/.CODE/AXdata/렌더/KayKit_Adventurers_2.0_FREE/KayKit_Adventurers_2.0_FREE/Characters/gltf/Barbarian.glb
+barbarian_large	STRIKER	D:/.CODE/AXdata/렌더/KayKit_Complete_v6/The Complete KayKit Collection v6/KayKit Adventurers 2.0/Characters/gltf/Barbarian_Large.glb
+werewolf_man	STRIKER	D:/.CODE/AXdata/렌더/KayKit_Complete_v6/The Complete KayKit Collection v6/KayKit Mystery Monthly Series 4/4 - October 2023 - Werewolf/characters/gltf/Werewolf_Man.glb
+werewolf_wolf	STRIKER	D:/.CODE/AXdata/렌더/KayKit_Complete_v6/The Complete KayKit Collection v6/KayKit Mystery Monthly Series 4/4 - October 2023 - Werewolf/characters/gltf/Werewolf_Wolf.glb
+skeleton_warrior	STRIKER	D:/.CODE/AXdata/렌더/KayKit_Complete_v6/The Complete KayKit Collection v6/KayKit Skeletons 1.1/characters/gltf/Skeleton_Warrior.glb
+skeleton_minion	STRIKER	D:/.CODE/AXdata/렌더/KayKit_Complete_v6/The Complete KayKit Collection v6/KayKit Skeletons 1.1/characters/gltf/Skeleton_Minion.glb
+druid	SUPPORT	D:/.CODE/AXdata/렌더/KayKit_Complete_v6/The Complete KayKit Collection v6/KayKit Adventurers 2.0/Characters/gltf/Druid.glb
+animatronic_normal	SUPPORT	D:/.CODE/AXdata/렌더/KayKit_Complete_v6/The Complete KayKit Collection v6/KayKit Mystery Monthly Series 4/5 - November 2023 - Animatronic/characters/gltf/Animatronic_Normal.glb
+rogue	ROGUE	D:/.CODE/AXdata/렌더/KayKit_Adventurers_2.0_FREE/KayKit_Adventurers_2.0_FREE/Characters/gltf/Rogue.glb
+rogue_hooded	ROGUE	D:/.CODE/AXdata/렌더/KayKit_Adventurers_2.0_FREE/KayKit_Adventurers_2.0_FREE/Characters/gltf/Rogue_Hooded.glb
+skeleton_rogue	ROGUE	D:/.CODE/AXdata/렌더/KayKit_Complete_v6/The Complete KayKit Collection v6/KayKit Skeletons 1.1/characters/gltf/Skeleton_Rogue.glb
+animatronic_creepy	ROGUE	D:/.CODE/AXdata/렌더/KayKit_Complete_v6/The Complete KayKit Collection v6/KayKit Mystery Monthly Series 4/5 - November 2023 - Animatronic/characters/gltf/Animatronic_Creepy.glb
+ranger	ARCHER	D:/.CODE/AXdata/렌더/KayKit_Adventurers_2.0_FREE/KayKit_Adventurers_2.0_FREE/Characters/gltf/Ranger.glb
+engineer	ARCHER	D:/.CODE/AXdata/렌더/KayKit_Complete_v6/The Complete KayKit Collection v6/KayKit Adventurers 2.0/Characters/gltf/Engineer.glb
+mage	MAGE	D:/.CODE/AXdata/렌더/KayKit_Adventurers_2.0_FREE/KayKit_Adventurers_2.0_FREE/Characters/gltf/Mage.glb
+necromancer	MAGE	D:/.CODE/AXdata/렌더/KayKit_Complete_v6/The Complete KayKit Collection v6/KayKit Skeletons 1.1/characters/gltf/Necromancer.glb
+skeleton_mage	MAGE	D:/.CODE/AXdata/렌더/KayKit_Complete_v6/The Complete KayKit Collection v6/KayKit Skeletons 1.1/characters/gltf/Skeleton_Mage.glb

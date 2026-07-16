@@ -211,3 +211,14 @@
 - 기록: MESHY.md 상단에 '확정 파이프라인' 섹션 추가.
 - 미정: 07·gax·axax77 역할(추후 정의).
 - 다음: (선택) 무료경로 end-to-end 1개 검증(09 컨셉→Hunyuan→Mixamo→05→01) 또는 Tripo 유료 검토.
+
+## 2026-07-16 — 전투 애니 16프레임 재렌더(매핑·드라이버 기록)
+- 목적: axdata_01 전투 애니를 8→16프레임으로 부드럽게. idle+attack 재렌더.
+- 카메라: SPRITE_DIR="1,0,0"(오른쪽 측면), tilt 10, padding 1.15 — 기존 out_roster_full과 동일 방향(시험렌더로 검증).
+- 애니 파일: idle=KayKit_Adventurers_2.0_FREE .../Rig_Medium_General.glb (클립 Idle_A).
+  attack=KayKit_Character_Animations_1.1 .../Rig_Medium_CombatMelee.glb 또는 CombatRanged.glb.
+  원형별 클립: VANGUARD=Melee_1H_Attack_Slice_Diagonal, STRIKER=Melee_2H_Attack_Chop, ROGUE=Melee_1H_Attack_Stab, ARCHER=Ranged_Bow_Release, MAGE=Ranged_Magic_Shoot, SUPPORT=Ranged_Magic_Spellcasting.
+- 몸 매핑: battle_render_map.tsv (21종 id→archetype→body_glb). FREE Adventurers 6 + Complete_v6(Adventurers 추가·Skeletons·Mystery Werewolf/Animatronic/Paladin).
+- 실행: bash render-battle16.sh → out_battle16/<id>_<clip>_NN.png (672개=21×2×16). 소요 ~10분.
+- 주의(재현 함정): blender엔 스크립트 경로를 Windows 경로(D:/...)로 넘겨야 함(msys /d/ 넘기면 OSError). SPRITE_* 경로도 D:/ 정방향.
+- 조립은 axdata_01/scripts/assemble_strips.py (SRC=out_battle16, NFR=16).
