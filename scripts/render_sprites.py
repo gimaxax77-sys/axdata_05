@@ -57,6 +57,9 @@ if _env_camdir:
 _env_out = os.environ.get("SPRITE_OUT")            # 결과 폴더 덮어쓰기
 if _env_out:
     OUT_DIR = _env_out
+_env_chardir = os.environ.get("SPRITE_CHARDIR")    # 다른 팩의 캐릭터 폴더 전체경로
+if _env_chardir:
+    CHAR_DIR = _env_chardir
 
 
 def clear_scene():
