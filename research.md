@@ -231,3 +231,7 @@
 - scripts/render_icons.py: 정적 gltf 아이템 → 3/4 각도 2D 아이콘(아마추어 불필요, Workbench STUDIO, 틴트 지원).
 - 자원 4종: currency=BoardGame coin_gold(위에서), growth=ResourceBits Gem_Large(틴트 파랑), summon=Gems_Pile_Large(자홍), gem=Gem_Large(청록). Resource/BoardGame Bits는 Assets/gltf 사용(텍스처 정상).
 - 결과 → axdata_01/assets/ui/{currency,growth,summon,gem}.png (128px).
+
+## 2026-07-17 — 전투 배경 씬 렌더(UI 2단계)
+- scripts/render_scene.py: 던전 모듈(바닥 5x4 격자 + 아치 뒷벽 + 기둥) 배치, 원근 카메라(앞-위), 투명 렌더. floor_dirt_large + wall_arched + column.
+- PIL 합성: 어두운 보라 그라데이션 + 살짝 어둡게 + 상단 비네트 → axdata_01/assets/pixel/bg-battle.png (1024x576).
