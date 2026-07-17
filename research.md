@@ -222,3 +222,7 @@
 - 실행: bash render-battle16.sh → out_battle16/<id>_<clip>_NN.png (672개=21×2×16). 소요 ~10분.
 - 주의(재현 함정): blender엔 스크립트 경로를 Windows 경로(D:/...)로 넘겨야 함(msys /d/ 넘기면 OSError). SPRITE_* 경로도 D:/ 정방향.
 - 조립은 axdata_01/scripts/assemble_strips.py (SRC=out_battle16, NFR=16).
+
+## 2026-07-17 — 전투 hit·walk 모션 추가(16프레임)
+- render-hitwalk16.sh: hit=General/Hit_A, walk=MovementBasic/Walking_A, 16프레임, 오른쪽 측면. out_battle16에 21×2×16=672 추가.
+- 조립(axdata_01/scripts/assemble_strips.py, 4상태)로 idle/attack/hit/walk 스트립 생성.
