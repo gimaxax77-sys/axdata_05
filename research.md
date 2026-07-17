@@ -226,3 +226,8 @@
 ## 2026-07-17 — 전투 hit·walk 모션 추가(16프레임)
 - render-hitwalk16.sh: hit=General/Hit_A, walk=MovementBasic/Walking_A, 16프레임, 오른쪽 측면. out_battle16에 21×2×16=672 추가.
 - 조립(axdata_01/scripts/assemble_strips.py, 4상태)로 idle/attack/hit/walk 스트립 생성.
+
+## 2026-07-17 — 자원바 3D 아이콘 렌더(UI 업그레이드 1단계)
+- scripts/render_icons.py: 정적 gltf 아이템 → 3/4 각도 2D 아이콘(아마추어 불필요, Workbench STUDIO, 틴트 지원).
+- 자원 4종: currency=BoardGame coin_gold(위에서), growth=ResourceBits Gem_Large(틴트 파랑), summon=Gems_Pile_Large(자홍), gem=Gem_Large(청록). Resource/BoardGame Bits는 Assets/gltf 사용(텍스처 정상).
+- 결과 → axdata_01/assets/ui/{currency,growth,summon,gem}.png (128px).
