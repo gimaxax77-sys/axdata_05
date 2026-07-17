@@ -235,3 +235,7 @@
 ## 2026-07-17 — 전투 배경 씬 렌더(UI 2단계)
 - scripts/render_scene.py: 던전 모듈(바닥 5x4 격자 + 아치 뒷벽 + 기둥) 배치, 원근 카메라(앞-위), 투명 렌더. floor_dirt_large + wall_arched + column.
 - PIL 합성: 어두운 보라 그라데이션 + 살짝 어둡게 + 상단 비네트 → axdata_01/assets/pixel/bg-battle.png (1024x576).
+
+## 2026-07-17 — 전투 배경 다양화(층 순환 + 난이도 색조)
+- 던전 4변형 렌더(bg0 흙+아치벽, bg1 격자바닥, bg2 아치창벽, bg3 석재+T벽). render_scene.py 재사용(floor/wall 파라미터).
+- axdata_01/assets/pixel/bg-battle-0..3.png. 층÷10 순환 선택, 난이도별 색조 오버레이(일반 없음/험난 주황/지옥 적/나락 보라).
