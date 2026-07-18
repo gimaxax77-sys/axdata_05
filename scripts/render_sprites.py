@@ -101,17 +101,67 @@ def mesh_bbox(meshes):
     return mn, mx
 
 
+# 엔진 선택: 'workbench'(기본, 평면) 또는 'eevee'(3점조명+그림자, 입체감).
+ENGINE = os.environ.get("SPRITE_ENGINE", "workbench").lower()
+
+
+def _common_render():
+    sc = bpy.context.scene
+    sc.render.film_transparent = True
+    sc.render.resolution_x = RESOLUTION
+    sc.render.resolution_y = RESOLUTION
+    sc.render.image_settings.file_format = 'PNG'
+    sc.render.image_settings.color_mode = 'RGBA'
+
+
 def setup_workbench():
     """스프라이트에 적합한 균일 조명(Workbench Flat + 텍스처 + 투명 배경)."""
     sc = bpy.context.scene
     sc.render.engine = 'BLENDER_WORKBENCH'
     sc.display.shading.light = 'FLAT'
     sc.display.shading.color_type = 'TEXTURE'
-    sc.render.film_transparent = True
-    sc.render.resolution_x = RESOLUTION
-    sc.render.resolution_y = RESOLUTION
-    sc.render.image_settings.file_format = 'PNG'
-    sc.render.image_settings.color_mode = 'RGBA'
+    _common_render()
+
+
+def _add_sun(name, direction, energy, angle, color):
+    ld = bpy.data.lights.new(name, 'SUN'); ld.energy = energy; ld.angle = angle
+    ld.color = color
+    lo = bpy.data.objects.new(name, ld); bpy.context.collection.objects.link(lo)
+    lo.rotation_euler = Vector(direction).normalized().to_track_quat('-Z', 'Y').to_euler()
+
+
+def setup_eevee():
+    """입체감 있는 3점 조명 렌더(EEVEE Next). 음영·림라이트 + 선명한 색(Standard)."""
+    sc = bpy.context.scene
+    sc.render.engine = 'BLENDER_EEVEE_NEXT'
+    try:
+        sc.eevee.use_raytracing = True
+    except Exception:
+        pass
+    sc.eevee.use_shadows = True
+    sc.eevee.taa_render_samples = 64
+    # AgX(채도 죽음) → Standard(게임 아트용 선명)
+    sc.view_settings.view_transform = 'Standard'
+    sc.view_settings.look = 'None'
+    # 은은한 환경광(그림자만 안 새까맣게)
+    world = bpy.data.worlds.new("W"); sc.world = world
+    world.use_nodes = True
+    bg = world.node_tree.nodes.get('Background')
+    if bg:
+        bg.inputs[0].default_value = (0.42, 0.45, 0.52, 1.0)
+        bg.inputs[1].default_value = 0.18
+    # 키(따뜻·강) / 필(약·차가움) / 림(뒤 윤곽)
+    _add_sun("Key",  (-0.6, -0.7, -0.9), 4.5, 0.25, (1.0, 0.96, 0.88))
+    _add_sun("Fill", ( 0.8, -0.4, -0.3), 1.1, 0.40, (0.85, 0.90, 1.0))
+    _add_sun("Rim",  ( 0.3,  0.9,  0.2), 5.5, 0.15, (1.0, 0.98, 0.95))
+    _common_render()
+
+
+def setup_render():
+    if ENGINE == 'eevee':
+        setup_eevee()
+    else:
+        setup_workbench()
 
 
 def make_camera(meshes):
@@ -164,7 +214,7 @@ def render_body(body):
         o.hide_render = True
         o.hide_viewport = True
 
-    setup_workbench()
+    setup_render()
     make_camera(body_meshes)
 
     if not body_arm.animation_data:
