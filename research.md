@@ -239,3 +239,36 @@
 ## 2026-07-17 — 전투 배경 다양화(층 순환 + 난이도 색조)
 - 던전 4변형 렌더(bg0 흙+아치벽, bg1 격자바닥, bg2 아치창벽, bg3 석재+T벽). render_scene.py 재사용(floor/wall 파라미터).
 - axdata_01/assets/pixel/bg-battle-0..3.png. 층÷10 순환 선택, 난이도별 색조 오버레이(일반 없음/험난 주황/지옥 적/나락 보라).
+
+## [2026-07-18] 전체 로스터 EEVEE 재렌더 완료
+- render_sprites.py에 SPRITE_ENGINE=eevee 모드 추가(3점조명+그림자+림, Standard 색보정). 기본값 workbench 유지(하위호환).
+- render-battle16.sh + render-hitwalk16.sh를 SPRITE_ENGINE=eevee로 실행 → 21캐릭터×4모션×16f = 1344프레임 재렌더(13분).
+- assemble_strips.py로 84 스트립 재조립 → axdata_01 assets/units/fantasy 반영. 누락 없음.
+- 미결: 적 스프라이트(5종) + 아이콘·배경은 아직 Workbench → 전투 화면 일관성 위해 후속 재렌더 필요.
+
+## [2026-07-18] 적 스프라이트 EEVEE 재렌더 완료
+- render-enemy16-eevee.sh 신규(적 5종, 왼쪽 -1,0,0, EEVEE, 적별 공격 클립 개별 매핑).
+- 5종×3모션×16f: out_enemy16(idle/hit 160) + out_enemy_atk(attack 80).
+- assemble_enemy_strips.py 신규 → assets/units/enemy 15 스트립 반영, 누락 없음.
+- 결과: 전투 화면 아군(21)+적(5) 모두 EEVEE 톤 통일 완료.
+
+## [2026-07-18] 전투 배경 10종 EEVEE 재렌더 완료
+- render_scene_eevee.py 신규: 던전 소품(통·상자·보물·기둥) + 횃불 점광 + 앞바닥 필라이트 + 볼륨 안개 + 달빛 + Standard 색보정. 앞-중앙은 전투공간으로 비움.
+- render-bg10-eevee.sh: 10종 무드(바닥6·벽3·색조) 일괄 → _bg10 → assets/pixel/bg-battle-0~9.png 반영(10/10 성공).
+- 초반 '텅 빈 그레이박스' 지적 해소. 캐릭터(EEVEE)와 톤 통일.
+- 남음: play.html 재빌드로 인게임 확인, P2(boon·메타), 이모지 아이콘 정리.
+
+## [2026-07-18] 펫·가디언 아이콘 — Quaternius Cute Monsters 렌더
+- Quaternius Cute Animated Monsters(21종, CC0) 다운로드: gdown --folder로 Drive 폴더(1zLLO_7ZoWgUsS4uooYnVSErQYRu1VdS0). glTF 21종은 자체포함(임베드 지오메트리+재질색, .bin/텍스처 불필요). OBJ는 Drive 접근제한으로 일부 실패(무관).
+- render_monster.py: obj/gltf/fbx 확장자 감지. FBX는 색 안 읽어 흰색 → gltf/obj 사용. EEVEE 3점조명 256px 투명.
+- render-creatures.sh: 매핑된 18종(펫12+가디언6) → assets/ui/creatures/<Monster>.png(18개, 916KB).
+- 매핑: 펫 럭키캣→Pig,늑대→Yeti,부엉이→Chicken,여우→Deer,큰곰→Panda,거북→Crab,드래곤→YellowDragon,불사조→Bat,유니콘→Bee,크라켄→Cthulhu,기린→GreenDemon,레비아탄→Cyclops / 가디언 불도마뱀→Demon,물정령→Ghost,바람정령→Mushroom,골렘→Alien_Tall,켈피→Penguin,불사조령→Skull.
+- uiIcons.js: petIcon/guardianIcon 레지스트리. GrowthPanel Tile에 image prop 추가(타일·상세팝업). 이모지 폴백 유지.
+- 검증: 전체 281 통과, play.html 컴파일 OK(인라인 이미지 159→177), 인라인 에셋맵에 크리처 data URI 확인. (펫 15층 해금이라 인게임 타일은 해금 후 노출.)
+
+## [2026-07-18] 적 스프라이트 다양화 — Quaternius 몬스터 6종
+- Quaternius Cute Monsters는 공유 리그(MonsterArmature)에 Idle/Bite_Front(공격)/HitRecieve(피격)/Walk/Death 등 애니 내장 → 21종 동일 클립.
+- render_monster_sprite.py 신규: gltf 임포트→클립 적용→16프레임 왼쪽향(-1,0,0) EEVEE 렌더. render-enemies-q.sh(6종×3상태×16f=288프레임).
+- assemble_qenemy_strips.py → assets/units/enemy/<key>/ 18 스트립(누락 없음).
+- 추가 적: demon·greendemon·cthulhu·cyclops·yeti·alien. unitSprites.js 'enemy:<key>' 6종 등록. ENEMY_KEYS 5→11(IdleScreen+RunScreen). RunScreen 보스=cthulhu·엘리트=cyclops.
+- 검증: 전체 281 통과, play.html 컴파일 OK(인라인 이미지 177→195), 6종 스프라이트 인라인 번들 확인, 마운트 에러 0. (인게임 노출은 진행도/원정 보스 등 도달 시.)
